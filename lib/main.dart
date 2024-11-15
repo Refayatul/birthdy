@@ -1,12 +1,21 @@
+import 'package:birthdy/start_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData.dark(useMaterial3: true),
-      home: const Scaffold(
-        body: GradientContainer(
-            Color.fromARGB(255, 48, 2, 216), Color.fromARGB(255, 96, 31, 248)),
+      //theme: ThemeData.dark(useMaterial3: true),
+      home: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color.fromARGB(255, 78, 13, 151),
+              Color.fromARGB(255, 107, 15, 168),
+            ]),
+          ),
+          child: const StartScreen(),
+        ),
+        //GradientContainer(Colors.blue, Colors.purple),
       ),
     ),
   );
@@ -47,17 +56,18 @@ class GetBirthdayImage extends StatelessWidget {
       children: [
         const Image(image: AssetImage('assets/images/quiz-logo.png')),
         const SizedBox(height: 20),
-        TextButton(
+        OutlinedButton(
           onPressed: () {
             // Add your onPressed functionality here
           },
-          style: TextButton.styleFrom(
+          style: OutlinedButton.styleFrom(
             foregroundColor: Colors.white,
+            side: const BorderSide(color: Colors.white), // Border color
             textStyle: const TextStyle(
               fontSize: 20,
             ),
           ),
-          child: const Text('Click'),
+          child: const Text('Start Quiz'),
         ),
       ],
     );
