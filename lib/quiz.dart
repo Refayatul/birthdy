@@ -1,3 +1,4 @@
+import 'package:birthdy/question_screen.dart';
 import 'package:birthdy/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,27 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  var activeScreen = 'start-screen';
+  switchScreen() {
+    setState(() {
+      activeScreen = 'question-screen';
+    });
+  }
+
+  // Widget? activeScreen;
+
+  // @override
+  // void initState() {
+  //   activeScreen = StartScreen(switchScreen);
+  //   super.initState();
+  // }
+
+  // switchScreen() {
+  //   setState(() {
+  //     activeScreen = const QuestionScreen();
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +47,10 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: const StartScreen(),
+          child: //activeScreen,
+              activeScreen == 'start-screen'
+                  ? StartScreen(switchScreen)
+                  : const QuestionScreen(),
         ),
       ),
     );
